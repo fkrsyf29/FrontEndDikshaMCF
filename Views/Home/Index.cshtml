@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Location>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="contact-clean">
+    <form method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="agreementNumber" class="form-label">Agreement Number</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="agreementNumber" placeholder="" /></div>
+                    <label for="branchId" class="form-label">Branch ID</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="branchId" placeholder="" /></div>
+                    <label for="bpkbNo" class="form-label">No. BPKB</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="bpkbNo" placeholder="" /></div>
+                    <label for="bpkbDateIn" class="form-label">Tanggal BPKB In</label>
+                    <div class="mb-3"> <div class="input-group date" id="datetimepicker1"><input type="text" class="form-control" data-date-format="DD-MM-YYYY" /></div></div>
+                    <label for="bpkbDate" class="form-label">Tanggal BPKB</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="bpkbDate" placeholder="" /></div>
+                    <label for="fakturNo" class="form-label">No Faktur</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="fakturNo" placeholder="" /></div>
+                </div>
+                <div class="col">
+                    <label for="fakturDate" class="form-label">Tanggal Faktur</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="fakturDate" placeholder="" /></div>
+                    <label for="policeNo" class="form-label">No Polisi</label>
+                    <div class="mb-3"><input class="form-control" type="text" id="policeNo" placeholder="" /></div>
+                    <label for="location_id" class="form-label">Lokasi Penyimpanan</label>
+                    <table cellpadding="0" cellspacing="0">
+                        <select name="location_id" id="location_id">
+                            <option value="-">Select Lokasi Penyimpanan</option>
+                        
+                        @foreach (Location customer in Model)
+                        {
+                            <option value=@customer.location_id>@customer.location_name</option>
+                        }
+                        </select>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3"><button class="btn" type="submit">Cancel </button></div>
+                </div>
+                <div class="col">
+                    <div class="mb-3"><button class="btn" type="submit">Save </button></div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </form>
+</section>
